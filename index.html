@@ -21,8 +21,24 @@
  	<!--
     <script src="../../../../scripts/angular/angular.min.js"></script>
     <script src="../../../../scripts/angular/ui-bootstrap.min.js"></script>
+
    <script src="../../../../scripts/jquery/jquery-1.11.2.min.js"></script>
-   -->
+   -->/**
+    * Created by aymanhabeb on 16/4/17.
+    */
+
+
+    if (typeof (buildfire) == "undefined") throw ("please add buildfire.js first to use BuildFire services");
+
+    if (typeof (buildfire.services) == "undefined") buildfire.services = {};
+
+    if (typeof (buildfire.services.camera) == "undefined") buildfire.services.camera = {};
+
+    buildfire.services.camera.getPicture = function (options, callback) {
+    if (!options)
+    options = {};
+    buildfire._sendPacket(new Packet(null, "camera.getPicture", options), callback);
+
 </head>
 <body>
 <span>Content - Hello world!</span>
